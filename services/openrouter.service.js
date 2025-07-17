@@ -1,4 +1,3 @@
-const OpenAI = require('openai/index.mjs');
 const config = require('../config');
 
 async function generateComment(text, imageUrls, apiKey) {
@@ -13,6 +12,9 @@ async function generateComment(text, imageUrls, apiKey) {
     error.statusCode = 401; // Unauthorized
     throw error;
   }
+
+  // Dynamic import for ESM module
+  const OpenAI = (await import('openai/index.mjs')).default;
 
   const openai = new OpenAI({
     baseURL: config.openRouter.baseURL,
