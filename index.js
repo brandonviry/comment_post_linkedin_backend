@@ -10,8 +10,8 @@ const app = express();
 // Apply security headers
 app.use(helmet());
 
-// Configure CORS
-app.use(cors());
+app.use(cors(config.corsOptions));
+// app.use(cors());
 
 // Parse JSON bodies
 app.use(bodyParser.json());
