@@ -11,7 +11,7 @@ const app = express();
 app.use(helmet());
 
 // Configure CORS
-app.use(cors(config.corsOptions));
+app.use(cors());
 
 // Parse JSON bodies
 app.use(bodyParser.json());
